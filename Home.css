@@ -5,24 +5,27 @@ body {
   color: #333;
 }
 
-  header {
-    color: #fff;
-    padding: 0;
-    position: relative;
-    background-size: cover;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
-    background-color: snow;
-    min-height: 100px;
-  }
+/* HEADER */
+header {
+  color: #fff;
+  padding: 0;
+  position: relative;
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-color: snow;
+  min-height: 100px;
+}
 
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
 }
 
+/* SEARCH BAR */
 .search-bar {
   display: flex;
   align-items: center;
@@ -32,6 +35,7 @@ body {
   border-radius: 20px;
   margin-left: 20px;
   margin-top: 20px;
+  transition: width 0.3s ease;
 }
 
 .search-icon {
@@ -50,8 +54,10 @@ body {
   font-size: 16px;
 }
 
+/* CATEGORIES */
 .categories {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   margin-left: 20px;
   margin-top: 10px;
@@ -70,6 +76,7 @@ body {
   background-color: #1abc9c;
 }
 
+/* PROFILE MENU */
 .profile-menu {
   position: fixed;
   top: 10px;
@@ -77,6 +84,7 @@ body {
   display: flex;
   align-items: center;
   cursor: pointer;
+  z-index: 1000; /* Pastikan menu profil berada di atas elemen lain */
 }
 
 .profile-pic {
@@ -114,16 +122,8 @@ body {
   display: block;
 }
 
-.test2 {
-  color: black;
-}
-
-.test{
-  margin-left: 30px;
-}
-
 .recipe-section {
-  padding: 100px 0;
+  padding: 80px 20px;
 }
 
 .recipe-section h2 {
@@ -136,8 +136,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .recipe-card {
@@ -173,10 +171,20 @@ body {
 }
 
 .call-to-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
   background-color: #000000;
-  padding: 1px 0;
   text-align: center;
   background-size: cover;
+}
+
+.call-to-action img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .call-to-action h2 {
@@ -195,7 +203,6 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-
 
 .call-to-action button:hover {
   background-color: #1abc9c;
@@ -219,63 +226,116 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
+/* MEDIA QUERIES */
+@media (max-width: 1024px) {
   .search-bar {
-    width: 100%;
+    width: 60%;
+    margin-left: 10px;
+  }
+
+  .categories {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 0;
   }
 
   .recipe-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .hero-title {
-    font-size: 2.5em;
-  }
-
-  .hero-subtitle {
-    font-size: 1.2em;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
-/* buat tablet */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
 
-@media (max-width: 1024px) {
   .search-bar {
-    margin-left: 10px; 
+    width: 80%;
+    margin-left: 0;
   }
 
   .categories {
-    margin-left: 20px; 
+    gap: 10px;
+    margin-top: 20px;
   }
 
-  .hero {
-    padding: 100px 0;
+  .recipe-section h2 {
+    font-size: 2em;
+  }
+
+  .recipe-card {
+    padding: 15px;
+  }
+
+  .call-to-action {
+    padding: 15px 10px;
+  }
+
+  .call-to-action img {
+    width: 80%; /* Menyesuaikan logo agar lebih kecil pada perangkat kecil */
+    max-width: 300px; /* Batas maksimal agar tidak terlalu besar */
+  }
+
+  .call-to-action h2 {
+    font-size: 0.9em;
+  }
+
+  .call-to-action button {
+    padding: 6px 12px;
   }
 }
 
-/* buat hp */
 @media (max-width: 480px) {
   .search-bar {
-    margin-left: 0; 
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
   }
 
   .categories {
-    margin-left: 0; 
+    flex-direction: column;
+    margin: 0 auto;
     text-align: center;
   }
 
   .category {
-    display: block;
-    margin: 5px 0; 
-  }
-
-  .hero {
-    padding: 80px 0; 
-    text-align: center; 
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
   }
 
   .profile-menu {
     position: static;
     margin-top: 10px;
+    justify-content: center;
+  }
+
+  .recipe-section h2 {
+    font-size: 1.8em;
+  }
+
+  .recipe-card {
+    padding: 10px;
+  }
+
+  .call-to-action h2 {
+    font-size: 0.9em;
+  }
+
+  .call-to-action button {
+    padding: 5px 10px;
+  }
+.call-to-action img {
+    width: 70%; /* Menyesuaikan logo lebih lanjut */
+    max-width: 200px;
+  }
+
+  .call-to-action h2 {
+    font-size: 0.8em;
+  }
+  footer {
+    padding: 15px 0;
   }
 }
