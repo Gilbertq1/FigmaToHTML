@@ -78,9 +78,13 @@ header {
 
 /* PROFILE MENU */
 .profile-menu {
+  position: fixed;
+  top: 10px;
+  right: 10px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  z-index: 1000; /* Pastikan menu profil berada di atas elemen lain */
 }
 
 .profile-pic {
