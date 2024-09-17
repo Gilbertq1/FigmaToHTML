@@ -1,19 +1,27 @@
-body {
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
   color: #333;
 }
 
 /* HEADER */
+
 header {
   color: #fff;
   padding: 0;
   position: relative;
   background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-color: snow;
   min-height: 100px;
 }
@@ -26,10 +34,11 @@ header {
 }
 
 /* SEARCH BAR */
+
 .search-bar {
   display: flex;
   align-items: center;
-  width: 40%;
+  width: 40%; /* default width */
   background-color: #ecf0f1;
   padding: 5px 10px;
   border-radius: 20px;
@@ -54,7 +63,32 @@ header {
   font-size: 16px;
 }
 
+/* RESPONSIVE SEARCH BAR */
+
+@media (max-width: 1024px) {
+  .search-bar {
+    width: 60%;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    width: 80%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
 /* CATEGORIES */
+
 .categories {
   display: flex;
   flex-wrap: wrap;
@@ -76,7 +110,38 @@ header {
   background-color: #1abc9c;
 }
 
+/* RESPONSIVE CATEGORIES */
+
+@media (max-width: 1024px) {
+  .categories {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .categories {
+    gap: 10px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categories {
+    flex-direction: column;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .category {
+    margin: 5px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* PROFILE MENU */
+
 .profile-menu {
   position: fixed;
   top: 10px;
@@ -84,7 +149,7 @@ header {
   display: flex;
   align-items: center;
   cursor: pointer;
-  z-index: 1000; /* Pastikan menu profil berada di atas elemen lain */
+  z-index: 1000;
 }
 
 .profile-pic {
@@ -121,6 +186,8 @@ header {
 .profile-menu:hover .dropdown-menu {
   display: block;
 }
+
+/* RECIPE SECTION */
 
 .recipe-section {
   padding: 80px 20px;
@@ -170,6 +237,8 @@ header {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* CALL TO ACTION */
+
 .call-to-action {
   display: flex;
   justify-content: center;
@@ -188,15 +257,15 @@ header {
 }
 
 .call-to-action h2 {
-  font-size: 1em; 
+  font-size: 1em;
   font-weight: bold;
-  margin-bottom: 10px; 
-  color: #ffffff; 
+  margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .call-to-action button {
-  font-size: 0.9em; 
-  padding: 8px 16px; 
+  font-size: 0.9em;
+  padding: 8px 16px;
   background-color: snow;
   color: black;
   border: none;
@@ -208,6 +277,8 @@ header {
   background-color: #1abc9c;
   color: #fff;
 }
+
+/* FOOTER */
 
 footer {
   background-color: #2c3e50;
@@ -226,116 +297,15 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* MEDIA QUERIES */
+/* RESPONSIVE STYLES */
+
 @media (max-width: 1024px) {
-  .search-bar {
-    width: 60%;
-    margin-left: 10px;
-  }
-
-  .categories {
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 0;
-  }
-
-  .recipe-grid {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
-
-@media (max-width: 768px) {
   .header-content {
     flex-direction: column;
     text-align: center;
   }
-
-  .search-bar {
-    width: 80%;
-    margin-left: 0;
-  }
-
-  .categories {
-    gap: 10px;
-    margin-top: 20px;
-  }
-
-  .recipe-section h2 {
-    font-size: 2em;
-  }
-
-  .recipe-card {
-    padding: 15px;
-  }
-
-  .call-to-action {
-    padding: 15px 10px;
-  }
-
-  .call-to-action img {
-    width: 80%; /* Menyesuaikan logo agar lebih kecil pada perangkat kecil */
-    max-width: 300px; /* Batas maksimal agar tidak terlalu besar */
-  }
-
-  .call-to-action h2 {
-    font-size: 0.9em;
-  }
-
-  .call-to-action button {
-    padding: 6px 12px;
-  }
 }
 
-@media (max-width: 480px) {
-  .search-bar {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10px;
+  .recipe-grid {
+    padding-left: 20px
   }
-
-  .categories {
-    flex-direction: column;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .category {
-    margin: 5px 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .profile-menu {
-    position: static;
-    margin-top: 10px;
-    justify-content: center;
-  }
-
-  .recipe-section h2 {
-    font-size: 1.8em;
-  }
-
-  .recipe-card {
-    padding: 10px;
-  }
-
-  .call-to-action h2 {
-    font-size: 0.9em;
-  }
-
-  .call-to-action button {
-    padding: 5px 10px;
-  }
-.call-to-action img {
-    width: 70%; /* Menyesuaikan logo lebih lanjut */
-    max-width: 200px;
-  }
-
-  .call-to-action h2 {
-    font-size: 0.8em;
-  }
-  footer {
-    padding: 15px 0;
-  }
-}
